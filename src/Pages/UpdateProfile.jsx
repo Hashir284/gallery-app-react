@@ -26,7 +26,6 @@ const UpdateProfile = () => {
       setSuccess('')
       setLoading(true)
 
-      // Firebase main auth profile update execution
       await updateProfile(auth.currentUser, {
         displayName: username.trim(),
         photoURL: photoUrl.trim() || null
@@ -34,10 +33,9 @@ const UpdateProfile = () => {
 
       setSuccess('Profile successfully synchronized!')
       
-      // Khud ba khud 1.5 seconds baad dashboard par wapas le jayega
       setTimeout(() => {
         navigate('/')
-      }, 1000)
+      }, 400)
 
     } catch (err) {
       console.error("Profile Update Exception:", err)
@@ -73,7 +71,6 @@ const UpdateProfile = () => {
             </div>
           )}
           
-          {/* Username Input */}
           <div>
             <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
               Workspace Username
@@ -88,7 +85,6 @@ const UpdateProfile = () => {
             />
           </div>
 
-          {/* Profile Picture URL Input */}
           <div>
             <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
               Profile Avatar Image URL (Optional)
