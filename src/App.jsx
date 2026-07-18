@@ -6,6 +6,7 @@ import Signup from './Pages/Signup';
 import { auth, onAuthStateChanged, signOut } from './initialize';
 import Login from './Pages/Login';
 import Forget from './Pages/Forget';
+import Loading from './Pages/Loading';
 
 const App = () => {
     const [userLoggedIn, setUserLoggedIn] = useState(null);
@@ -38,18 +39,16 @@ const App = () => {
   };
 
   if (userLoggedIn === null) {
-      return (<div className="App w-full flex justify-center items-center h-screen">
-         <h1>Loading</h1>;
-      </div>)
+    return (<Loading />)
   }
  
   return (
     <div className="App bg-slate-950 text-slate-100  max-width-1400px bg-loginbg w-full ">
         {userLoggedIn ? (
         <Routes>
-          <Route path="/" element={<Home change={change} />} />
+          <Route path="/home" element={<Home change={change} />} />
           <Route path="/UpdateProfile" element={<UpdateProfile />} />
-          <Route path="*" element={<Navigate to={"/"} />} />
+          <Route path="*" element={<Navigate to={"/home"} />} />
         </Routes>
       ) : (
         <Routes>

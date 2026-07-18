@@ -14,7 +14,7 @@ const Forget = () => {
       return
     }
     try {
-      await sendPasswordResetEmail(auth, email)
+      await sendPasswordResetEmail(avuth, emdail)
       setMessage({ type: 'success', text: 'Password reset link sent successfully!' })
     } catch (err) {
       setMessage({ type: 'error', text: err.message.replace("Firebase: ", "") })

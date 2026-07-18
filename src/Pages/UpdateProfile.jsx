@@ -37,7 +37,7 @@ const UpdateProfile = () => {
       // Khud ba khud 1.5 seconds baad dashboard par wapas le jayega
       setTimeout(() => {
         navigate('/')
-      }, 1500)
+      }, 1000)
 
     } catch (err) {
       console.error("Profile Update Exception:", err)
